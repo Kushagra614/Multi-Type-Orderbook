@@ -256,9 +256,42 @@ class Orderbook
                 CancelOrder(order->GetOrderId());
             }
                 
-
         }
+
+        return trades;
     }
+
+    private:
+        Trades AddOrder(OrderPointer order)
+        {
+            //1st we will go thru the exit cases
+            if(orders_.contains(order->GetOrderId()))  return { };
+
+            //if a FOK order can't be filled then no point adding it
+            if(order->GetOrderType() == OrderType::FillAndKill && !CanMatch(order->GetSide(), order->GetPrice()))
+            {
+                return { };
+            }
+
+            OrderPointers::iterator iterator;
+
+            if(order->GetSide() == Side::BUY)
+            {
+                auto& orders = bids_[order->GetPrice()];
+                orders.push_back(order);
+                iterator = next(orders.begin(), orders.size()-1);
+            }
+            else
+            {
+                auto& orders = asks_[order->GetPrice()];
+                orders.push_back(order);
+                iterator = next(orders.begin(), orders.size()-1);
+            }
+
+            // Inserting this into another data structure
+            orders_.insert({order->GetOrderId(), OrderEntry(order, iterator)});
+            return MatchOrders();
+        }
 };
 
 int main()
