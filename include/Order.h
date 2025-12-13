@@ -7,7 +7,7 @@
 #include "Usings.h"
 #include "Side.h"
 #include "OrderType.h"
-
+#include "Constants.h"
 class Order {
 public:
     Order(OrderType orderType, OrderId orderId, Side side, Price price, Quantity quantity)
@@ -18,6 +18,12 @@ public:
           initialQuantity_(quantity),
           remainingQuantity_(quantity)
     {}
+
+    // NEW: Market-order constructor (no price). Delegates to the full ctor.
+    Order(OrderType orderType, OrderId orderId, Side side, Quantity quantity )
+        : Order(OrderType::Market, orderId, side, Constants::InvalidPrice, quantity )
+        { }
+
 
     OrderType GetOrderType() const { return orderType_; }
     OrderId GetOrderId() const { return orderId_; }
