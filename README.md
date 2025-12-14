@@ -1,7 +1,7 @@
 # 📊 Multi-Type-Orderbook-Engine
 
 
-A high-performance, thread-safe C++ implementation of a limit order book (LOB) designed for electronic trading systems. This implementation provides efficient order matching, comprehensive order types, and real-time trade execution.
+A high-performance, thread-safe C++ implementation of an order matching engine that supports both limit and market orders. This implementation provides efficient price-time priority matching, comprehensive order types, and real-time trade execution.
 
 ## 🏷️ Order Types
 
