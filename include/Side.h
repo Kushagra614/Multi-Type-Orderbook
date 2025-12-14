@@ -1,6 +1,8 @@
 #pragma once
 
-enum class Side {
-    BUY,
-    SELL
+enum class Side
+{
+    Buy,
+    Sell
 };
+

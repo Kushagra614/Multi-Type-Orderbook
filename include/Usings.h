@@ -1,6 +1,8 @@
 #pragma once
-#include <cstdint>
 
-using Price    = double;
-using Quantity = uint32_t;
-using OrderId  = uint64_t;
+#include <vector>
+
+using Price = std::int32_t;
+using Quantity = std::uint32_t;
+using OrderId = std::uint64_t;
+using OrderIds = std::vector<OrderId>;

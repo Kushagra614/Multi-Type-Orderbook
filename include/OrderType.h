@@ -1,7 +1,10 @@
 #pragma once
 
-enum class OrderType {
-    GoodTillCancel,
-    FillAndKill,
-    Market
+enum class OrderType
+{
+	GoodTillCancel,
+	FillAndKill,
+	FillOrKill,
+	GoodForDay,
+	Market,
 };

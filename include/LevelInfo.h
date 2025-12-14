@@ -1,8 +1,9 @@
 #pragma once
-#include "Usings.h"
-#include <vector>
 
-struct LevelInfo {
+#include "Usings.h"
+
+struct LevelInfo
+{
     Price price_;
     Quantity quantity_;
 };

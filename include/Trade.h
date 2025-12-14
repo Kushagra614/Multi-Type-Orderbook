@@ -1,26 +1,22 @@
 #pragma once
 
-#include "Usings.h"
-#include <vector>
+#include "TradeInfo.h"
 
-struct TradeInfo {
-    OrderId orderid_;
-    Price price_;
-    Quantity quantity_;
-};
-
-class Trade {
+class Trade
+{
 public:
-    Trade(const TradeInfo& bid, const TradeInfo& ask)
-        : bid_(bid), ask_(ask)
-    {}
+    Trade(const TradeInfo& bidTrade, const TradeInfo& askTrade)
+        : bidTrade_{ bidTrade }
+        , askTrade_{ askTrade }
+    { }
 
-    const TradeInfo& GetBidTrade() const { return bid_; }
-    const TradeInfo& GetAskTrade() const { return ask_; }
+    const TradeInfo& GetBidTrade() const { return bidTrade_; }
+    const TradeInfo& GetAskTrade() const { return askTrade_; }
 
 private:
-    TradeInfo bid_;
-    TradeInfo ask_;
+    TradeInfo bidTrade_;
+    TradeInfo askTrade_;
 };
 
 using Trades = std::vector<Trade>;
+
