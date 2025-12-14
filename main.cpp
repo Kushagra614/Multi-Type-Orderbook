@@ -6,7 +6,7 @@ int main() {
     // Create an order book
     Orderbook orderbook;
     
-    std::cout << "=== Simple Order Book Demo ===\n";
+    std::cout << "=== Simple Orderbook Demo ===\n";
     
     // Add a buy order
     std::cout << "\nAdding a buy order (ID: 1, Price: 100, Quantity: 10)\n";
